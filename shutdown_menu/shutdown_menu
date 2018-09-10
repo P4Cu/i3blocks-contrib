@@ -113,14 +113,15 @@ typeset -A menu
 
 # Menu with keys/commands
 menu=(
-  [Shutdown]="systemctl poweroff"
-  [Reboot]="systemctl reboot"
-  [Hibernate]="systemctl hibernate"
-  [Suspend]="systemctl suspend"
-  [Halt]="systemctl halt"
-  [Lock]="${LOCKSCRIPT:-i3lock --color=${BG_COLOR#"#"}}"
-  [Logout]="i3-msg exit"
-  [Cancel]=""
+  [0\)Cancel]=""
+  [1\)Lock]="${LOCKSCRIPT:-i3lock --color=${BG_COLOR#"#"}}"
+  [2\)Shutdown]="systemctl poweroff"
+  [3\)Reboot]="systemctl reboot"
+  [4\)Display]='$HOME/.screenlayout/$(ls $HOME/.screenlayout/ | rofi -dmenu -i -p "display conf:")'
+  [5\)Suspend]="systemctl suspend"
+  [6\)Hibernate]="systemctl hibernate"
+  [7\)Halt]="systemctl halt"
+  [8\)Logout]="i3-msg exit"
 )
 menu_nrows=${#menu[@]}
 
